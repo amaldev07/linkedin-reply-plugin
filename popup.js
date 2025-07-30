@@ -4,12 +4,15 @@ document.getElementById('replyBtn').addEventListener('click', async () => {
       target: { tabId: tab.id },
       func: () => {
         let userName = document.querySelector('.msg-overlay-bubble-header__title a span')?.textContent.trim();
+        if (!userName) {
+          userName = document.querySelector('.msg-entity-lockup__entity-title')?.textContent.trim();
+        }
         let firstName = userName ? userName.split(' ')[0] : '';
 
         let input = document.querySelector('[contenteditable="true"][role="textbox"]');
         if (input) {
           input.focus();
-            input.innerHTML = `<p>Hi ${firstName},</p><p><br><br></p><p>Regards,<br>Amaldev | amaldev.tech</p>`;
+          input.innerHTML = `<p>Hi ${firstName},</p><p><br><br></p><p>Regards,<br>Amaldev | amaldev.tech</p>`;
           input.dispatchEvent(new Event('input', { bubbles: true }));
         } else {
           alert('Message input not found!');
