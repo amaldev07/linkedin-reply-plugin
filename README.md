@@ -10,3 +10,9 @@ Hi {{user_name}},
 
 Regards,
 Amaldev | amaldev.tech
+
+---
+
+Will work with opened messages from chat as well as messages section
+
+Dont open both Simultaniously
