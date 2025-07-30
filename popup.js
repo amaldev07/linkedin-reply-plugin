@@ -1,21 +1,20 @@
 document.getElementById('replyBtn').addEventListener('click', async () => {
-    alert(123)
   // Run the content script's fillMessage function in the active tab
-  chrome.tabs.query({active: true, currentWindow: true}, ([tab]) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       func: () => {
         // This code will run in the context of the LinkedIn tab
         // Find the user name (grab from DOM if possible)
-        let userName = "there";
-        const nameEl = document.querySelector('h2.msg-thread__subject'); // fallback if needed
-        if(nameEl) userName = nameEl.textContent.trim();
+        // let userName = "there";
+        let userName = document.querySelector('.msg-overlay-bubble-header__title a span')?.textContent.trim();
+        let firstName = userName ? userName.split(' ')[0] : '';
 
-        // Find the message input area
         let input = document.querySelector('[contenteditable="true"][role="textbox"]');
-        if(input) {
-          input.focus();
-          input.innerText = `Hi ${userName},\n\nRegards,\nAmaldev`;
+        if (input) {
+          input.focus(); // Focus on the message box
+          input.innerHTML = `<p>Hi How are you</p>`;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
         } else {
           alert('Message input not found!');
         }
