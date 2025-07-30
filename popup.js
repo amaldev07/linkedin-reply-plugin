@@ -13,7 +13,7 @@ document.getElementById('replyBtn').addEventListener('click', async () => {
         let input = document.querySelector('[contenteditable="true"][role="textbox"]');
         if (input) {
           input.focus(); // Focus on the message box
-          input.innerHTML = `<p>Hi How are you</p>`;
+            input.innerHTML = `<p>Hi ${firstName},</p><p><br><br></p><p>Regards,<br>Amaldev | amaldev.tech</p>`;
           input.dispatchEvent(new Event('input', { bubbles: true }));
         } else {
           alert('Message input not found!');
