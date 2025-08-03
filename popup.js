@@ -3,6 +3,8 @@ document.getElementById('replyBtn').addEventListener('click', async () => {
   const res = await fetch(chrome.runtime.getURL('message.txt'));
   const template = await res.text();
 
+  let inputMsg = document.getElementById('messageBox').value;
+
   chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },

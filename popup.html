@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <style>
-    body { font-family: sans-serif; padding: 12px; }
-    button { padding: 8px 18px; font-size: 1rem; }
+    body {
+      font-family: sans-serif;
+      padding: 12px;
+    }
+    button {
+      padding: 8px 18px;
+      font-size: 1rem;
+    }
+    .msg-txt-area {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
-<body>
+
+<body style="width: 400px;">
+  <textarea id="messageBox" rows="5" class="msg-txt-area" placeholder="Paste your message here..."></textarea>
   <button id="replyBtn">Reply</button>
 </body>
 <script src="popup.js"></script>
